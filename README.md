@@ -42,4 +42,4 @@ externC.print(c)
 string d = "Goodbye world"
 externC.print(d)
 ```
-yeah... very basic atp and just a proof of concept
+yeah... it's very basic atp and just a proof of concept
