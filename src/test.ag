@@ -1,0 +1,11 @@
+string a = "Hello world"
+int b = 123
+char c = 'c'
+
+externC.print("Hello")
+externC.print(a)
+externC.print(b)
+externC.print(c)
+
+string d = "Goodbye world"
+externC.print(d)
