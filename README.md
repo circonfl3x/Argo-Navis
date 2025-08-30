@@ -28,3 +28,18 @@ it just reads from a file called test.ag and writes out to one called out.c
 - Add scoped variables
 - Add proper file inclusion
 - And I'll think of more as it goes along
+## Example program
+```C
+string a = "Hello world"
+int b = 123
+char c = 'c'
+
+externC.print("Hello")
+externC.print(a)
+externC.print(b)
+externC.print(c)
+
+string d = "Goodbye world"
+externC.print(d)
+```
+yeah... very basic atp and just a proof of concept
