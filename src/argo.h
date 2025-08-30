@@ -50,6 +50,7 @@ string *parse(tokens *t);
 var_t *is_defined(const char *name);
 TYPES check_type(const char *name);
 //compiler
+void dumpmem();
 
 
 

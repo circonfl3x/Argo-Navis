@@ -153,6 +153,10 @@ string *parse(tokens *t){
                 }        
                 free(v);
             }
+        }else{
+            wchar_t *argws = cstowcs(arg);
+            Error(L"\"\033[36m",argws, L"\033[0m\"", L" is not a valid argument for print",NULL);
+            free(argws);
         }
             
         

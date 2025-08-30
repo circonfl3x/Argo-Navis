@@ -48,6 +48,7 @@ int main(void){
     }
     
 end:
+    dumpmem();
     /*for(int i = 0; i > vars.types.length; i++){
         puts("Hello");
         char *name = vars.names.data[i];
