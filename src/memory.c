@@ -6,7 +6,7 @@ void dumpmem(){
         if(vars.types.data[i] == STRING){
             string *s = malloc(sizeof(string));
             string_new(s);
-            string_concat(s,"string_free("); 
+            string_concat(s,"string_free(&"); 
             string_concat(s, (char*)vars.names.data[i]);
             string_concat(s,");");
             write_outws(s->data);
