@@ -41,5 +41,7 @@ externC.print(c)
 
 string d = "Goodbye world"
 externC.print(d)
+externC.print(12345)
+externC.print('e')
 ```
 yeah... it's very basic atp and just a proof of concept
