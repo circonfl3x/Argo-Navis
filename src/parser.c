@@ -147,7 +147,7 @@ string *parse(tokens *t){
                     // string_concat(ret, arg);
                     // string_concat(ret, ");");
 
-                    string_concat_vcstr(ret, "printf(\"%ls\\n\",",arg,");",NULL);
+                    string_concat_vcstr(ret, "printf(\"%ls\\n\",",arg,".data);",NULL);
                 }else if(v->type == INT){
                     // string_concat(ret, "printf(\"%d\\n\",");
                     // string_concat(ret, arg);
