@@ -78,6 +78,11 @@ string *string_concat_str(string *s, const string *s2);
 string *string_concat_cstr(string *s, const char *str2);
 string *string_concat_wcstr(string *s, const wchar_t *wcstr2);
 
+
+string *string_concat_vstr(string *s, const string *s2, ...);
+string *string_concat_vcstr(string *s, const char *s2, ...);
+string *string_concat_vwcstr(string *s, const wchar_t *s2, ...);
+
 unsigned long string_getlength(string *s);
 void string_free(string *s);
 

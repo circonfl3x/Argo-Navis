@@ -124,32 +124,42 @@ string *parse(tokens *t){
         char *arg = ptr->data[1];
         bool valid = false;
         if(is_valid_string(arg, false)){
-            string_concat(ret, "puts(");
-            string_concat(ret, arg);
-            string_concat(ret, ");");
+            // string_concat(ret, "puts(");
+            // string_concat(ret, arg);
+            // string_concat(ret, ");");
+            string_concat_vcstr(ret, "puts(",arg,");",NULL);
         }else if(is_valid_chr(arg, false)){
-            string_concat(ret, "printf(\"%c\\n\",");
-            string_concat(ret, arg);
-            string_concat(ret, ");");
+            // string_concat(ret, "printf(\"%c\\n\",");
+            // string_concat(ret, arg);
+            // string_concat(ret, ");");
+            string_concat_vcstr(ret, "printf(\"%c\\n\",",arg,");", NULL);
         }else if(is_valid_int(arg, false)){
-            string_concat(ret, "printf(\"%d\\n\",");
-            string_concat(ret, arg);
-            string_concat(ret,");");
+            // string_concat(ret, "printf(\"%d\\n\",");
+            // string_concat(ret, arg);
+            // string_concat(ret,");");
+
+            string_concat_vcstr(ret, "printf(\"%d\\n\",",arg,");", NULL);
         }else if(is_valid_var(arg, false)){
             var_t *v;
             if((v=is_defined(arg)) != NULL){
                 if(v->type == STRING){
-                    string_concat(ret, "printf(\"%ls\\n\",");
-                    string_concat(ret, arg);
-                    string_concat(ret, ");");
+                    // string_concat(ret, "printf(\"%ls\\n\",");
+                    // string_concat(ret, arg);
+                    // string_concat(ret, ");");
+
+                    string_concat_vcstr(ret, "printf(\"%ls\\n\",",arg,");",NULL);
                 }else if(v->type == INT){
-                    string_concat(ret, "printf(\"%d\\n\",");
-                    string_concat(ret, arg);
-                    string_concat(ret, ");");
+                    // string_concat(ret, "printf(\"%d\\n\",");
+                    // string_concat(ret, arg);
+                    // string_concat(ret, ");");
+
+                    string_concat_vcstr(ret, "printf(\"%d\\n\",",arg,");",NULL);
                 }else{
-                    string_concat(ret, "printf(\"%c\\n\",");
-                    string_concat(ret, arg);
-                    string_concat(ret, ");");
+                    // string_concat(ret, "printf(\"%c\\n\",");
+                    // string_concat(ret, arg);
+                    // string_concat(ret, ");");
+
+                    string_concat_vcstr(ret, "printf(\"%c\\n\",",arg,");",NULL);
                 }        
                 free(v);
             }
@@ -208,7 +218,7 @@ void parse_var(string *ret, tokens *t, TYPES *num_type){
         // printf("%s %s %s\n", type, name, value);
         string_concat(ret, type);
         if(strcmp(type, "string") == 0){
-            string_concat(ret, " ");
+            /*string_concat(ret, " ");
             string_concat(ret, name); 
             string_concat(ret, ";\n");
             string_concat(ret, "\tstring_new(&");
@@ -218,16 +228,19 @@ void parse_var(string *ret, tokens *t, TYPES *num_type){
             string_concat(ret, name);
             string_concat(ret, ",");
             string_concat(ret, value);
-            string_concat(ret, ");");
+            string_concat(ret, ");");*/
+            string_concat_vcstr(ret, " ", name,";\n",
+                    "\tstring_new(&",name,");\n","\tstring_concat(&",name,",",value,");",NULL);
             //what in the actual fuck is this
-            //TODO: make string_concat vardic
+            //TODO: make string_concat vardic (DONE)
 
         }else{ 
-            string_concat(ret, " ");
+            /*string_concat(ret, " ");
             string_concat(ret, name);
             string_concat(ret, "=");
             string_concat(ret, value);
-            string_concat(ret, ";");
+            string_concat(ret, ";");*/
+            string_concat_vcstr(ret, " ",name,"=",value,";",NULL);
         }
         array2d_push(&vars.names, (void*)name, strlen(name)+1);
         array2d_push(&vars.data, (void*)value, strlen(value)+1); 
