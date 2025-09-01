@@ -11,3 +11,7 @@ string d = "Goodbye world"
 externC.print(d)
 externC.print(12345)
 externC.print('e')
+d = "Hello world"
+externC.print(d)
+b = 2564
+c = 'f'

@@ -27,6 +27,7 @@ typedef struct{
     char *name;
     char *data;
     TYPES type;
+    int index;
 } var_t;
 typedef struct{
     vector names;
@@ -60,6 +61,7 @@ typedef enum {
 } Errors;
 typedef enum {
     VARS, FUNCS, SPECFUNC,  COMMENTS,
+    VARS_REASS,
 
 } token;
 void Error(const wchar_t *msg, ...);

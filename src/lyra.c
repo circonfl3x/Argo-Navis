@@ -119,7 +119,19 @@ string *string_concat_cstr(string *s, const char *str2){
     return s;
 }
 
+string *string_concat_wcstr(string *s, const wchar_t *str2){
+    size_t len2 = wcslen(str2);
+    s->data = 
+        lsafe_realloc(s->data, s->length+len2, sizeof(wchar_t));
+    // s->data = realloc(s->data, (s->length+len2)*sizeof(wchar_t));
+    wchar_t *ptr = s->data;
+    ptr += s->length;
+    bzero(ptr, len2);
+    wcscat(s->data, str2);
 
+    s->length += len2;
+    return s;
+}
 string *string_concat_str(string *s, const string *s2){
     if(!s) return NULL;
     if(s2->length == 0) return s;

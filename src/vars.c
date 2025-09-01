@@ -9,6 +9,7 @@ var_t *is_defined(const char *name){
             ret->name = vars.names.data[i];
             ret->type = vars.types.data[i];
             ret->data = vars.data.data[i];
+            ret->index = i;
         }
     }
     return ret; 
