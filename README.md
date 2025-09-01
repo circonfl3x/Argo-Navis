@@ -9,7 +9,8 @@ it just reads from a file called test.ag and writes out to one called out.c
 
 ## Features
 - Memory safety (obviously)... It's built off another memory management framework that I've made (Lyra). I'll avoid weird C undefined behaviour and all variables will probably have to be declared
-- Garbage collector - the framework for one already exists, but making a smart one will probably be much tougher
+- ~~Garbage collector - the framework for one already exists, but making a smart one will probably be much tougher~~
+- *Smarter Garbage collector*
 - Simplicity, it most likely won't have all the OOP features. Maybe I'll look into putting structs? It will be C like in structure but much much simpler
 - Strong typed. All types are defined explicitly (maybe might compromise on this?), anyway its not like there will be many types
 
@@ -18,8 +19,12 @@ it just reads from a file called test.ag and writes out to one called out.c
 - function declaration, but for now that does nothing... There is just a framework to handle reading functions... The syntax is  `fn name(arg1, arg2, ....){}`
 - there is one "primitive function" for now... `externC.print(arg)` it takes one argument that can be anything and prints it out (no the "externC." doesn't mean that there will be classes)
 - For now there are 3 types - string, char and int (more to come ofc)
+- Variable redeclaration
+- It makes a C program that fully compiles and works
+- Decent error messaging and catching (need to test more though)
 
 ## Plans
+- ~~Add variable reallocation~~
 - Add floats, doubles
 - Add proper function declarations
 - Add argument passing to the binary so the user can declare their input/output files, compiler flags etc
@@ -43,5 +48,9 @@ string d = "Goodbye world"
 externC.print(d)
 externC.print(12345)
 externC.print('e')
+d = "Hello world"
+externC.print(d)
+b = 2564
+c = 'f'
 ```
 yeah... it's very basic atp and just a proof of concept
