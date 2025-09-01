@@ -9,8 +9,7 @@ it just reads from a file called test.ag and writes out to one called out.c
 
 ## Features
 - Memory safety (obviously)... It's built off another memory management framework that I've made (Lyra). I'll avoid weird C undefined behaviour and all variables will probably have to be declared
-- ~~Garbage collector - the framework for one already exists, but making a smart one will probably be much tougher~~
-- *Smarter Garbage collector*
+- Garbage collector. It currently just frees all the memory at the end of the runtime of the program, I plan for a smarter one though
 - Simplicity, it most likely won't have all the OOP features. Maybe I'll look into putting structs? It will be C like in structure but much much simpler
 - Strong typed. All types are defined explicitly (maybe might compromise on this?), anyway its not like there will be many types
 
